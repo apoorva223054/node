@@ -5,12 +5,4 @@ files:
     destination: /var/www/html/
  
  
-hooks:
-  BeforeInstall:
-    - location: service apache2 stop
-      timeout: 300
-      runas: ubuntu
-  ApplicationStop:
-    - location: service apache2 stop
-      timeout: 300
-      runas: ubuntu
+ 
