@@ -1,6 +1,19 @@
 version: 0.0
-os: ubuntu
+os: ubuntu 
 files:
-  - source: /
-    destination: /opt/data/www/test.nirvanaxp.com/admin/aptest/
+  - source: /index.php
+    destination: /var/www/html/
  
+ 
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: service apache2 stop
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:
+    - location: service apache2 stop
+      timeout: 300
+      runas: ubuntu
